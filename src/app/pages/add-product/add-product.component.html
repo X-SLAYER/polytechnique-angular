@@ -1,0 +1,76 @@
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <h2 class="page-title">
+                        New Product
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards justify-content-center">
+                <div class="col-md-6">
+                    <form [formGroup]="formProduct" (ngSubmit)="submitForm()" method="post" class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Add product</h4>
+                        </div>
+
+                        <fieldset class="form-fieldset">
+                            <div class="mb-3">
+                                <label class="form-label required">Product Name</label>
+                                <input type="text" class="form-control" required formControlName="name" placeholder="Your name" autocomplete="off">
+                            </div>
+                            <ng-template *ngIf="name.invalid && (name.dirty || name.touched)">
+                                <div class="text-danger">
+                                    Name is required.
+                                </div>
+                            </ng-template>
+                            <div class="mb-3">
+                                <label class="form-label required">Quantity</label>
+                                <input required type="number" class="form-control" formControlName="quantity" autocomplete="off">
+                            </div>
+                            <ng-template *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
+                                <div class="text-danger">
+                                    quantity is required.
+                                </div>
+                            </ng-template>
+                            <div class="mb-3">
+                                <label class="form-label required">Price</label>
+                                <input required type="number" class="form-control" formControlName="price" autocomplete="off">
+                            </div>
+                            <ng-template *ngIf="price.invalid && (price.dirty || price.touched)">
+                                <div class="text-danger">
+                                    price is required.
+                                </div>
+                            </ng-template>
+                            <div class="mb-3">
+                                <div class="form-label">Custom File Input</div>
+                                <input required type="file" class="form-control" formControlName="photo">
+                            </div>
+                            <ng-template *ngIf="photo.invalid && (photo.dirty || photo.touched)">
+                                <div class="text-danger">
+                                    photo is required.
+                                </div>
+                            </ng-template>
+                        </fieldset>
+
+                        <div class="card-footer text-end">
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-primary ms-auto">Send data</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
