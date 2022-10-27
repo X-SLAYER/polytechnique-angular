@@ -1,20 +1,25 @@
-<div class="table-responsive">
-    <table class="table card-table table-vcenter text-nowrap datatable">
-        <thead>
-            <tr>
-                <th scope="col">Product Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">category</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.quantity}}</td>
-                <td>{{product.category.name}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Most Visited Pages</h3>
+    </div>
+    <div class="card-table table-responsive">
+        <table class="table table-vcenter">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">category</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let product of products">
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}} TND</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.category.name}}</td>
+                <tr>
+            </tbody>
+        </table>
+    </div>
 </div>
