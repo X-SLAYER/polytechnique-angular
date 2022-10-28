@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AddProductService } from 'src/app/service/add-product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -12,18 +13,21 @@ export class AddProductComponent implements OnInit {
   name = new FormControl('', [Validators.required]);
   quantity = new FormControl('', [Validators.required]);
   photo = new FormControl('', [Validators.required]);
-  constructor() {}
+  constructor(private addProductService: AddProductService) {}
 
   ngOnInit(): void {
     this.formProduct = new FormGroup({
       name: this.name,
       quantity: this.quantity,
       price: this.price,
-      photo: this.photo,
     });
   }
 
   submitForm() {
-    console.log(this.formProduct.value);
+    this.addProductService.addProduct(this.formProduct.value).subscribe(
+      (data:any) => { console.log(data); }, // success path 
+      (erreur:any) => { console.log(erreur); } // error path
+    );
+    
   }
 }
